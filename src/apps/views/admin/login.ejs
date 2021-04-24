@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vietpro Mobile Shop</title>
+    <link href="/static/admin/css/reset.css" rel="stylesheet">
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/admin/css/datepicker3.css" rel="stylesheet">
+    <link href="/static/admin/css/bootstrap-table.css" rel="stylesheet">
+    <link href="/static/admin/css/styles1.css" rel="stylesheet">
+    
+  </head>
+  <body>
+
+<form class="box" method="post" role="form">
+  <h1>Login</h1>
+  <%if(data && data.error){%>
+    <div class="alert alert-danger"> <%=data.error%> </div>
+  <%}%>
+  <input type="email" name="mail" placeholder="Username">
+  <input type="password" name="pass" placeholder="Password">
+  <input type="submit" name="" value="Login">
+</form>
+
+
+  </body>
+</html>
