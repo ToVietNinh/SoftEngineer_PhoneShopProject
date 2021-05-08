@@ -1,0 +1,65 @@
+MỞ ĐẦU
+
+Nhóm sinh viên thực hiện:
+Vũ Minh Phúc
+Tạ Xuân Trung
+Nguyễn Thị Thanh Lan
+ 
+Lý do chọn đề tài
+Hiện nay, các công nghệ tiên tiến phát triển ngày càng mạnh mẽ và được ứng dụng ngày
+càng nhiều vào các lĩnh vực kinh tế, sản xuất cũng như đời sống thường nhật của con
+người. Một điểm tiêu biểu trong việc phát triển các công nghệ đó phải kể đến việc ứng
+dụng công nghệ thông tin vào hầu khắp các hoạt động. Nhờ đó, các công việc được thực
+hiện nhanh, chính xác và đạt kết quả cao hơn rất nhiều.
+Khi xã hội ngày càng phát triển, mức sống của người dân được nâng cao thu nhập kinh
+tế ngày càng được cải thiện thì chiếc điện thoại di động không còn trở nên xa lạ với mọi
+người nữa mà ngược lại nó là một vật dụng không thể thiếu đối với người dân hiện nay.
+Hầu hết mỗi người đều trang bị cho mình một chiếc điện thoại phù hợp với nhu cầu và
+túi tiền của mình. Tuy nhiên, với cuộc sống ngày càng bận rộn như hiện nay thì việc
+muốn mua một chiếc điện thoại mình ưa thích thì người tiêu dùng phải đến tận cửa hàng
+để chọn lựa vì thế sẽ mất khá nhiều thời gian và công sức.
+Cùng với các lý do nêu trên, qua tìm hiểu nhóm đồ án được biết việc ứng dụng bán điện
+thoại di động trực tuyến sẽ giúp cho khách hàng giảm bớt được thời gian và công sức
+phải đến tận cửa hàng để mua. Muốn lựa chọn cho mình một chiếc điện thoại ưng ý phù
+hợp với túi tiền thì khách hàng chỉ cần ngồi bên chiếc máy tính có nối mạng internet là
+có thế mua được mặt hàng điện thoại mình cần.
+Do đó nhóm đề tài chọn thực hiện đề tài “ Xây dựng Website bán điện thoại di động
+trực tuyến cho công ty Nhật Cường Mobile ”
+Phần mềm được xây dựng với định hướng giúp việc mua sắm điện thoại của khách hàng
+dễ dàng và nhanh gọn hơn, không mất thời gian và công sức.
+Qua quá trình khảo sát thực tế, tìm hiểu và phân tích thiết kế nhóm đề tài đưa ra bản báo
+cáo gồm các phần sau để giúp người đọc hiểu rõ về chức năng của Website.
+Phần I: Mở đầu
+Phần II: Nội dung: Gồm 4 nội dung chính:
+• Tổng quan về vấn đề nghiên cứu
+• Phân tích và thiết kế hệ thống
+• Thiết kế giao diện và cài đặt chương trình
+• Thử nghiệm và đánh giá phần mềm
+3/63
+Phần III: Kết luận.
+Khách thể và đối tượng nghiên cứu
+• Hệ thống bán điện thoại di động;
+• Các công cụ xây dựng phần mềm như: Visual Studio 2008. SQL Server 2005.
+Giới hạn và phạm vi nghiên cứu
+Áp dụng thực hiện bán hàng cho công ty Nhật Cường Mobile.
+Mục đích nghiên cứu
+• Quản lý các thông tin khách hàng, ban quản trị.
+• Đưa ra các sản phẩm điện thoại di động đa dạng và hợp túi tiền
+• Cung cấp cho khách hàng những cập nhật mới nhất về sản phẩm và giá cả.
+• Đưa ra được các thống kê, báo cáo, chính xác về số lượng sản phẩm và khách
+hàng
+Nhiệm vụ nghiên cứu
+• Tìm hiểu quy trình bán hàng của công ty thông qua thực tế khảo sát tại Nhật
+Cường Mobile
+• Tìm hiểu các công cụ xây dựng hệ thống như: Visual Studio 2008, SQL 2005;
+• Demo hệ thống trên máy cục bộ.
+Phương pháp nghiên cứu
+• Khảo sát thực trạng tại công ty Nhật Cường Mobile.
+• Thu thập các yêu cầu từ phía người dùng.
+• Phân tích thiết kế hệ thống theo yêu cầu của người dùng.
+• Nghiên cứu các công cụ xây dựng hệ thống.
+Ý nghĩa lý luận và thực tiễn của đề tài
+• Giúp nhóm đề tài hiểu rõ quy trình bán điện thoại trực tuyến.
+• Giúp cho việc quản lý hàng hóa được thuận tiện hơn.
+• Giúp cho khách hàng mua hàng trên website biết rõ và thực hiện đúng trình tự
+khi mua hàng.
