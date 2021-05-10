@@ -28,14 +28,14 @@ const test = async (req,res) => {
         console.log(docs);
     });
     //res.render("test", {data: {a: 1000}});
-    //res.redirect("/admin/products");*/
-    /*const UserInsert1 = new UserModel({
-        full_name: "demoInsert",
-        email: "demoInsert@gmail.com",
-        password: "222222",
+    //res.redirect("/admin/products");
+    const UserInsert1 = new UserModel({
+        full_name: "demoInsert1",
+        email: "demoInsert1@gmail.com",
+        password: "2222223",
         role: "member",
     });
-    UserInsert1.save();*/
+    UserInsert1.save();
     /*UserModel.updateMany({_id: ObjectId("607022cfcf67f91100890cec")}, {
         email: "demo@gmail.com"
     }).exec((err, docs) => {
@@ -75,10 +75,26 @@ const fileUpload = (req,res) =>{
     fs.renameSync(file.path, path.resolve("src/public/images/products",file.originalname));
     console.log("Upload");
 }
+
+const frmloadUp = (req,res) => {
+    res.send(`
+        <form method = "post" enctype="multipart/form-data">
+            <input type="file" name="loadUp_file"/>
+            <button type="submit">loadUp</button>
+        </form>
+    
+    `);
+}
+const fileloadUp = (req,res) =>{
+    const file = req.file;
+    fs.renameSync(file.path, path.resolve("src/public/images/products",file.originalname));
+}
 module.exports = {
     test:test,
     test2:test2,
     test3:test3,
     frmUpload:frmUpload,
     fileUpload:fileUpload,
+    frmloadUp:frmloadUp,
+    fileloadUp:fileloadUp,
 }

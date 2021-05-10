@@ -1,6 +1,9 @@
 const CategoryModel = require("../models/category");
 const ProductsModel = require("../models/product");
 const paginate = require("../../common/paginate");
+const fs = require("fs");
+const path = require("path");
+const slug = require("slug");
 const index = async (req,res) =>{
     //const productss = await ProductsModel.find().populate({path:"cat_id"});
     const page = parseInt(req.query.page) || 1;
@@ -12,7 +15,7 @@ const index = async (req,res) =>{
 
 
 
-    const products = await ProductsModel.find().populate({path:"cat_id"}).skip(skip).limit(limit);
+    const products = await ProductsModel.find().populate({path:"cat_id"}).skip(skip).limit(limit).sort({"_id": -1});
     res.render("admin/product/product", 
     {
         products: products, 
@@ -27,15 +30,36 @@ const create = async (req,res)=>{
     res.render("admin/product/add_product", {categories: categories});
 }
 const postCreate = async (req,res) => {
-    const categories = await CategoryModel.find();
+    const body = req.body;
+    const file = req.file;
 
-    const prd_name = req.body.prd_name;
-    const prd_price = req.body.prd_price;
-    const prd_catId = req.body.cat_id;
+    const product = {
+        description: body.description,
+        price: body.price,
+        cat_id: body.cat_id,
+        status: body.status,
+        featured: body.featured,
+        promotion: body.promotion,
+        warranty: body.warranty,
+        accessories: body.accessories,
+        is_stock: body.is_stock,
+        name: body.name,
+        slug: slug(body.name),
+    }
+    console.log(product);
 
-    console.log(prd_name + " " + prd_price + " " + prd_catId);
+    if(file) {
+        const thumbnail = "products/" + file.originalname;
+        product["thumbnail"] = thumbnail;
+        fs.renameSync(file.path, path.resolve("src/public/images", thumbnail));
+    }
+    //fs.renameSync("dang nam dau", "muon di den dau");
 
-    res.render("admin/product/add_product" ,{categories: categories});
+    new ProductsModel(product).save();
+    res.redirect("/admin/products");
+
+    
+    
 }
 const add = (req,res)=>{
     res.send("Them san pham");
@@ -48,10 +72,10 @@ const del = (req,res)=>{
 }
 
 module.exports = {
+    index,
     create,
+    postCreate,
     edit,
     add,
     del,
-    index,
-    postCreate,
 }

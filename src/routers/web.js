@@ -9,9 +9,13 @@ const AdminController = require("../apps/controllers/admin");
 const ProductController = require("../apps/controllers/product");
 const CategoryController = require("../apps/controllers/category");
 const UserController = require("../apps/controllers/user");
+const IndexController = require("../apps/controllers/index");
 
 //Require Middleware
 const AuthMiddleware = require("../apps/middlewares/auth");
+const UploadMiddleware = require("../apps/middlewares/upload");
+
+
 router.get("/test",TestController.test);
 router.get("/test2", TestController.test2);
 router.get("/test3", TestController.test3);
@@ -21,10 +25,11 @@ const upload = multer({
    dest: __dirname + "/../../temp", 
 });
 
-router.get("/upload", TestController.frmUpload);
+router.get("/upload", TestController.frmUpload);    
 router.post("/upload", upload.single("file_upload"), TestController.fileUpload);
 
-
+router.get("/loadUp",TestController.frmloadUp);
+router.post("/loadUp",upload.single("loadUp_file"),TestController.fileloadUp);
 
 
 router.get("/form", (req,res)=>{
@@ -43,6 +48,7 @@ router.post("/form", (req,res)=>{
     console.log(mail+"-"+pass);
 });
 
+// Admin Page
 router.get("/admin/login", AuthMiddleware.checkLogin, AuthController.login);
 router.post("/admin/login", AuthMiddleware.checkLogin, AuthController.postLogin);
 
@@ -59,24 +65,33 @@ router.post("/admin/products",AuthMiddleware.checkAdmin, (req,res)=>{
 
 
 
-router.get("/admin/products/create", ProductController.create);
-router.post("/admin/products/create", ProductController.postCreate);
+router.get("/admin/products/create",AuthMiddleware.checkAdmin, ProductController.create);
+router.post("/admin/products/store",AuthMiddleware.checkAdmin,UploadMiddleware.single("image"), ProductController.postCreate);
 
-router.get("/admin/products/edit/:id", ProductController.edit);
+router.get("/admin/products/edit/:id",AuthMiddleware.checkAdmin, ProductController.edit);
 
-router.get("/admin/products/delete/:id", ProductController.del);
+router.get("/admin/products/delete/:id",AuthMiddleware.checkAdmin, ProductController.del);
 
-router.get("/admin/categories", CategoryController.index);
-router.post("/admin/categories", AdminController.postDashboard);
+router.get("/admin/categories",AuthMiddleware.checkAdmin, CategoryController.index);
+router.post("/admin/categories",AuthMiddleware.checkAdmin, AdminController.postDashboard);
 
-router.get("/admin/categories/add", CategoryController.add);
-router.post("/admin/categories/add",CategoryController.postAdd);
+router.get("/admin/categories/add",AuthMiddleware.checkAdmin, CategoryController.add);
+router.post("/admin/categories/add",AuthMiddleware.checkAdmin,CategoryController.postAdd);
 
-router.get("/admin/users", UserController.index);
+router.get("/admin/users",AuthMiddleware.checkAdmin, UserController.index);
 
 
-router.get("/admin/add_users", UserController.add);
-router.post("/admin/add_users", UserController.postAdd);
+router.get("/admin/add_users",AuthMiddleware.checkAdmin, UserController.add);
+router.post("/admin/add_users",AuthMiddleware.checkAdmin, UserController.postAdd);
+
+/*const multer = require("multer");
+const upload = multer({
+    dest: __dirname + "/../../temp",
+});
+*/
+
+// Client Page
+router.get("/CShop",IndexController.index);
 
 
 module.exports = router;

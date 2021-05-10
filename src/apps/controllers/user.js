@@ -7,8 +7,9 @@ const index = async (req,res) =>{
     const skip = page* limit - limit;
 
     const total = await UserModel.find().countDocuments();
-    const totalPage = Math.ceil(total/limit);
-    console.log(paginate(page,totalPage));
+    const totalPage = Math.ceil(total/limit);   
+
+    
 
 
 
@@ -31,7 +32,16 @@ const postAdd = async (req,res) => {
     const mail = req.body.user_mail;
     const pass = req.body.user_pass;
     const repass = req.body.user_re_pass;
+    const roleNumber = req.body.user_level;
+    var role;
+    if(roleNumber == 1) {
+        role = "admin";
+    }
+    else {
+        role = "member";
+    }
     const users = await UserModel.find({email:mail});
+    console.log(name + " " + " " + mail + " " + pass + " " + role);
     if(name == "" || mail == "" || pass == "" || repass == "") {
         error = "Bạn phải nhập đầy đủ thông tin!";
     }
@@ -42,8 +52,16 @@ const postAdd = async (req,res) => {
         error = "Email đã tồn tại!";
     }
     else{
-
+        const UserInsert = new UserModel({
+            full_name: name,
+            email: mail,
+            password: pass,
+            role: role,
+        });
+        UserInsert.save();
+        console.log(UserInsert);
     }
+    
     res.render("admin/user/add_user", {data:{error}});
     
 }

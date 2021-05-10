@@ -7,6 +7,7 @@ module.exports = {
         static_folder: __dirname+"/../src/public",
         session_key: "vietpro",
         session_secure: false,
+        temp: __dirname + "/../temp",
     },
     
 }
